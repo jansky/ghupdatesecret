@@ -1,0 +1,5 @@
+requests>=2.24.0
+pynacl>=1.4.0
+pylint>=2.5.3
+pydocstyle>=5.0.2
+flake8>=3.8.3

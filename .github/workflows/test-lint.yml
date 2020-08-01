@@ -1,0 +1,27 @@
+name: ghupdatesecret Commit Tests
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+          architecture: x64
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Pylint
+        run: |
+          pylint ghupdatesecret
+      - name: Flake8
+        run: |
+          flake8 ghupdatesecret/
+      - name: Pydocstyle
+        run: |
+          pydocstyle ghupdatesecret/
